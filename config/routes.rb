@@ -7,10 +7,14 @@ Rails.application.routes.draw do
   
   get 'welcome/home', to: 'welcome#home'
   
-   get 'welcome/about', to: 'welcome#about'
+  get 'welcome/about', to: 'welcome#about'
    
-   get 'root_path', to: 'pages:home'
-  
+  #get 'pages/home', to: 'pages#home'
+
+  get 'pages/about', to: 'pages#about'
+
+  root 'pages#home'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
