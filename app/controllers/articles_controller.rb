@@ -6,17 +6,31 @@ class ArticlesController < ApplicationController
     
   end
   
+  def show
+  
+    @article = Article.find(params[:id])
+    
+  end
+  
+  
   
   def create
     
     #render plain: params[:article].inspect
     
     @article = Article.new (article_params)
-    @article.save
+    if @article.save
+      flash[:success] = "Article successfully created"
+      redirect_to article_path(@article)
+    else
+      render 'new'
     
-    #to show the created articles
+    end
+    #DDL - to show the created articles
     
-    redirect_to articles_show(@article)
+    #DDL - the articles_path is name decided from the route names (checked using rake routes)
+    
+  
     
   end
   
