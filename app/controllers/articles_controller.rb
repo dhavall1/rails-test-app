@@ -12,6 +12,24 @@ class ArticlesController < ApplicationController
     
   end
   
+  #DDL create edit action
+  def edit
+    @article = Article.find(params[:id])
+  end
+  
+  
+  #update action handles the submit from edit
+  def update
+    @article = Article.find(params[:id])
+    
+    #the update needs whitelisted params
+    if @article.update(article_params)
+      flash[:notice] = "Article updated"
+      redirect_to article_path(@article)
+    end
+    
+  end
+  
   
   
   def create
