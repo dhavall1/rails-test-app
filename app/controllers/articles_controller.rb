@@ -1,4 +1,7 @@
+
 class ArticlesController < ApplicationController
+  
+  before_action :set_article_param, only: [:edit, :update, :show, :destroy]
   
   def index
     @articles = Article.all
@@ -13,13 +16,13 @@ class ArticlesController < ApplicationController
   
   def show
   
-    @article = Article.find(params[:id])
+        #@article = Article.find(params[:id])
     
   end
   
   def destroy
     
-   @article = Article.find(params[:id])
+   #@article = Article.find(params[:id])
    @article.destroy
    flash[:notice] = "Article was successfully deleted"
    
@@ -29,7 +32,7 @@ class ArticlesController < ApplicationController
   
   #DDL create edit action
   def edit
-    @article = Article.find(params[:id])
+   # @article = Article.find(params[:id])
   end
   
   
@@ -68,6 +71,14 @@ class ArticlesController < ApplicationController
   end
   
   private 
+  
+  def set_article_param
+    
+  @article = Article.find(params[:id])
+    
+  end
+  
+  #this is a method to be called instead of duplicating the code everywhere
   def article_params
   
     params.require(:article).permit(:title, :description)
