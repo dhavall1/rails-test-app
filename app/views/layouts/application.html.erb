@@ -8,13 +8,10 @@
 </head>
 <body>
   
-    <% flash.each do |name, msg| %> 
-      <ul>
-      <li> <%= msg %></li>
-    </ul>
-
-  <% end %>
+  <!-- calling partial form to show flash messages -->
+  <%= render 'layouts/messages' %>
   
+ 
   
 <%= yield %>
 
