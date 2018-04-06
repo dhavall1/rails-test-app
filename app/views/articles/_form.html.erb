@@ -9,12 +9,24 @@
 
 <% end %>
 
+<div class='row'>
+<div class = 'col-xs-12'>
+  
 <%= form_for @article do |f| %>
 
-<p>
-  <%= f.label :title %> <br/>
-  <%= f.text_field :title %>
-</p>
+<div class="form-group">
+  
+  <div class="control-label col-sm-2">
+    <%= f.label :title %> 
+    </div>
+  
+  
+    <div class="col-sm-10">
+
+      <%= f.text_field :title, class: "form-control", placeholder: "title of article", autofocus: true %>
+
+    </div>
+</div>
 
 <p>
   <%= f.label :description %> <br/>
@@ -28,5 +40,7 @@
 </p>
 <% end %>
 
-
 <%= link_to "Back to Articles Listings", articles_path %>
+
+</div>
+</div>
