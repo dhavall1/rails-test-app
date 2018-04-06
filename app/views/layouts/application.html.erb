@@ -8,12 +8,20 @@
 </head>
 <body>
   
+  <%= render 'layouts/navigation' %>
+  
+  
   <!-- calling partial form to show flash messages -->
   <%= render 'layouts/messages' %>
   
  
-  
-<%= yield %>
+  <div class = "container">
+  <%= yield %>
+</div>
+
+<%= render 'layouts/footer' %>
+
+
 
 </body>
 </html>
