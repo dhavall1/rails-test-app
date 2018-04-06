@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
     
    #@article = Article.find(params[:id])
    @article.destroy
-   flash[:notice] = "Article was successfully deleted"
+   flash[:success] = "Article was successfully deleted"
    
   redirect_to articles_path
   end
@@ -38,12 +38,14 @@ class ArticlesController < ApplicationController
   
   #update action handles the submit from edit
   def update
-    @article = Article.find(params[:id])
+   # @article = Article.find(params[:id])
     
     #the update needs whitelisted params
     if @article.update(article_params)
-      flash[:notice] = "Article updated"
+      flash[:success] = "Article updated"
       redirect_to article_path(@article)
+      else
+      render 'edit'
     end
     
   end
